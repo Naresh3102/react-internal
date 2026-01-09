@@ -43,7 +43,7 @@
 
 // export default App;
 
-import Header from "./components/headers/header";
+import Header from "./components/headers/Header";
 
 const App = () => {
   const name = "GB";
