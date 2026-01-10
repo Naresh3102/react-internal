@@ -43,15 +43,22 @@
 
 // export default App;
 
+import Counter from "./components/common/Counter";
 import Header from "./components/headers/Header";
+import { AuthProvider } from "./context/AuthContext";
+import { NameProvider } from "./context/NameContext";
 
 const App = () => {
-  const name = "GB";
   return (
-    <div>
-      <h1>Main page</h1>
-      <Header name={name} />
-    </div>
+    <>
+      <NameProvider>
+        <AuthProvider>
+          <h1>Main page</h1>
+          <Header />
+          <Counter />
+        </AuthProvider>
+      </NameProvider>
+    </>
   );
 };
 

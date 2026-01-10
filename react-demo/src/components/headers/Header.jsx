@@ -1,10 +1,13 @@
-import React from "react";
+import React, { useContext } from "react";
 import Company from "./Company";
+import NameContext from "../../context/NameContext";
 
-const Header = ({ name }) => {
+const Header = () => {
+  const values = useContext(NameContext);
   return (
     <div>
-      <Company name={name} />
+      <Company />
+      <p>Location: {values.location}</p>
     </div>
   );
 };

@@ -7,12 +7,14 @@ const App = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await fetch("http://localhost:5000/api/books", {
-          headers: {
-            authorization:
-              "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY5NWY3OTE4MTIwMjQ2YTcxOWJmNTJjZiIsInJvbGUiOiJVU0VSIiwiaWF0IjoxNzY3OTUxMzI2LCJleHAiOjE3Njc5NTQ5MjZ9.r-bp4V9rWafqYENHML1YzG7NCdH1x7bQzuwbVzdktQk",
-          },
-        });
+        const response = await fetch(
+          "https://backend-janbatch.vercel.app/api/books",
+          {
+            headers: {
+              authorization: `Bearer ${localStorage.getItem("jwt")}`,
+            },
+          }
+        );
         const data = await response.json();
         console.log(data);
 

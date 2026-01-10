@@ -1,10 +1,10 @@
 import React from "react";
 import CompanyName from "./CompanyName";
 
-const Company = ({ name }) => {
+const Company = () => {
   return (
     <div>
-      <CompanyName name={name} />
+      <CompanyName />
     </div>
   );
 };
