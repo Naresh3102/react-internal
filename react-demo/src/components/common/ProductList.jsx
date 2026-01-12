@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 
 const ProductList = () => {
   const [products, setProducts] = useState([]);
@@ -28,7 +29,11 @@ const ProductList = () => {
       {isLoading && <p>Loading...</p>}
       <ul>
         {products.length > 0
-          ? products.map((p) => <li key={p.id}>{p.title}</li>)
+          ? products.map((p) => (
+              <li key={p.id}>
+                <Link to={`${p.id}`}>{p.title}</Link>
+              </li>
+            ))
           : !error && !isLoading && <p>No product available</p>}
       </ul>
       {error && <p>Something went wrong</p>}

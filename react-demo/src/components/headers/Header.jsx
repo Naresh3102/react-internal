@@ -1,13 +1,53 @@
-import React, { useContext } from "react";
-import Company from "./Company";
-import NameContext from "../../context/NameContext";
+import React from "react";
+import { Link, NavLink } from "react-router-dom";
 
 const Header = () => {
-  const values = useContext(NameContext);
   return (
     <div>
-      <Company />
-      <p>Location: {values.location}</p>
+      <nav>
+        <ul>
+          <li>
+            <NavLink
+              to="/"
+              style={({ isActive }) => ({
+                color: isActive ? "green" : "blue",
+              })}
+            >
+              Home
+            </NavLink>
+          </li>
+          <li>
+            <NavLink
+              to="/about"
+              style={({ isActive }) => ({
+                color: isActive ? "green" : "blue",
+              })}
+            >
+              About
+            </NavLink>
+          </li>
+          <li>
+            <NavLink
+              to="/contact"
+              style={({ isActive }) => ({
+                color: isActive ? "green" : "blue",
+              })}
+            >
+              Contact
+            </NavLink>
+          </li>
+          <li>
+            <NavLink
+              to="/login"
+              style={({ isActive }) => ({
+                color: isActive ? "green" : "blue",
+              })}
+            >
+              Login Page
+            </NavLink>
+          </li>
+        </ul>
+      </nav>
     </div>
   );
 };

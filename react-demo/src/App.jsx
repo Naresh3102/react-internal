@@ -43,21 +43,35 @@
 
 // export default App;
 
-import Counter from "./components/common/Counter";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
+import HomePage from "./pages/HomePage";
+import AboutPage from "./pages/AboutPage";
+import ContactPage from "./pages/ContactPage";
 import Header from "./components/headers/Header";
-import { AuthProvider } from "./context/AuthContext";
-import { NameProvider } from "./context/NameContext";
+import LoginPage from "./pages/LoginPage";
+import ProductList from "./components/common/ProductList";
+import Productdetails from "./pages/Productdetails";
+import MainLayout from "./layouts/MainLayout";
+import NotFound from "./pages/NotFound";
 
 const App = () => {
   return (
     <>
-      <NameProvider>
-        <AuthProvider>
-          <h1>Main page</h1>
-          <Header />
-          <Counter />
-        </AuthProvider>
-      </NameProvider>
+      <BrowserRouter>
+        <Routes>
+          <Route path="/" element={<MainLayout />}>
+            <Route path="/" element={<HomePage />} />
+            <Route path="/about" element={<AboutPage />} />
+            <Route path="/contact" element={<ContactPage />} />
+            <Route path="/products/:pid" element={<Productdetails />} />
+            <Route path="/products" element={<ProductList />} />
+          </Route>
+
+          <Route path="/login" element={<LoginPage />} />
+
+          <Route path="*" element={<NotFound />} />
+        </Routes>
+      </BrowserRouter>
     </>
   );
 };
